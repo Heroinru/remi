@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remi — Бьюти-администратор</title>
+    <title>Remi — Ваш личный бьюти-администратор</title>
     
-    <!-- FONTS: Manrope (Основной) + Caveat (Рукописный) -->
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- TAILWIND -->
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
@@ -19,7 +19,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Manrope', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'], // Наш рукописный шрифт
+                        hand: ['Caveat', 'cursive'],
                     },
                     colors: {
                         brand: {
@@ -30,14 +30,14 @@
                             900: '#2E1065', 
                         },
                         accent: {
-                            teal: '#0D9488', // Цвет рукописного текста (Тиловый, как на Flo)
+                            teal: '#0D9488',
                         }
                     },
                     backgroundImage: {
-                        'dot-pattern': "radial-gradient(#CBD5E1 1px, transparent 1px)", // Точки на фоне
+                        'dot-pattern': "radial-gradient(#CBD5E1 1px, transparent 1px)",
                     },
                     backgroundSize: {
-                        'dot': '24px 24px', // Размер сетки точек
+                        'dot': '24px 24px',
                     }
                 }
             }
@@ -55,61 +55,63 @@
         .animate-blob {
             animation: blob 7s infinite;
         }
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
         
-        /* Эффект рисованной линии */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 5s ease-in-out infinite; animation-delay: 2s; }
+
         .drawn-arrow path {
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
             animation: dash 2s linear forwards;
             animation-delay: 0.5s;
         }
-        @keyframes dash {
-            to { stroke-dashoffset: 0; }
-        }
+        @keyframes dash { to { stroke-dashoffset: 0; } }
     </style>
 </head>
 <body class="bg-brand-50 text-gray-800 antialiased font-sans relative">
 
-    <!-- ФОНОВЫЙ ПАТТЕРН (Заполняет пустоту) -->
-    <div class="absolute inset-0 bg-dot-pattern bg-dot opacity-40 pointer-events-none z-0"></div>
+    <!-- ФОН -->
+    <div class="absolute inset-0 bg-dot-pattern bg-dot opacity-40 pointer-events-none z-0 fixed"></div>
 
     <!-- NAV -->
     <nav class="fixed w-full z-50 bg-brand-50/90 backdrop-blur-md border-b border-white/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-2">
-                     <!-- Иконка лого (пример) -->
                     <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg rotate-3 shadow-md">R</div>
                     <span class="text-2xl font-extrabold text-brand-900 tracking-tight">Remi</span>
                 </div>
+                <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+                    <a href="#problems" class="hover:text-brand-600 transition">Зачем это мне?</a>
+                    <a href="#sync" class="hover:text-brand-600 transition">Синхронизация</a>
+                </div>
                 <div>
                     <a href="https://t.me/airmnd_bot" class="bg-gray-900 text-white px-5 py-2.5 rounded-2xl font-bold hover:bg-gray-800 transition shadow-lg text-sm border-2 border-transparent hover:border-brand-200">
-                        Вход для мастеров
+                        Вход
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- 1. HERO SECTION -->
     <section class="pt-36 pb-20 relative overflow-visible z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 
-                <!-- ЛЕВАЯ ЧАСТЬ: Текст -->
+                <!-- Левая часть: Текст -->
                 <div class="relative z-20 text-center lg:text-left">
                     
-                    <!-- РУКОПИСНАЯ ВСТАВКА №1 (Над заголовком) -->
-                    <div class="hidden lg:block absolute -top-12 -left-8 transform -rotate-6">
+                    <!-- ИСПРАВЛЕННАЯ СТРЕЛКА (Поднял выше) -->
+                    <div class="hidden lg:block absolute -top-20 -left-10 transform -rotate-6">
                         <span class="font-hand text-3xl text-accent-teal font-bold block mb-1">Освобождает 20 часов в месяц! ✨</span>
-                        <!-- Изогнутая стрелка SVG -->
                         <svg class="w-16 h-16 text-accent-teal drawn-arrow transform translate-x-12" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                             <path d="M10,10 Q50,50 80,80 L70,85 M80,80 L85,70" /> 
                         </svg>
@@ -118,28 +120,22 @@
                     <h1 class="text-5xl lg:text-7xl font-extrabold text-brand-900 leading-tight mb-6">
                         <span class="relative inline-block">
                             Администратор
-                            <!-- Желтый маркерный подчерк -->
-                            <span class="absolute bottom-1 left-0 w-full h-3 bg-yellow-200 -z-10 rounded-sm transform -rotate-1 opacity-70"></span>
+                            <span class="absolute bottom-2 left-0 w-full h-3 bg-yellow-200 -z-10 rounded-sm transform -rotate-1 opacity-70"></span>
                         </span>
                         <br>в твоем кармане.
                     </h1>
                     
                     <p class="text-xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                        Remi работает через Telegram. Напоминает клиентам о записи, борется с «забывашками» и собирает отзывы на 5 звезд.
+                        Remi живет в Telegram. Напоминает клиентам о записи, борется с неявками и собирает отзывы на 5 звезд.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center relative">
                         <a href="https://t.me/airmnd_bot" class="group relative flex items-center justify-center bg-brand-500 text-white px-10 py-5 rounded-[2rem] font-bold text-xl hover:shadow-soft hover:bg-brand-600 hover:scale-105 transition duration-300">
                             Нанять Remi
-                            <!-- Эмодзи внутри кнопки -->
                             <span class="ml-2 group-hover:translate-x-1 transition">🚀</span>
                         </a>
-                        
-                        <!-- РУКОПИСНАЯ ВСТАВКА №2 (У кнопки) -->
                         <div class="absolute -bottom-16 left-10 lg:left-64 hidden sm:block">
-                            <span class="font-hand text-2xl text-gray-500 transform rotate-2 inline-block">
-                                Это бесплатно <br> (на старте) 😉
-                            </span>
+                            <span class="font-hand text-2xl text-gray-500 transform rotate-2 inline-block">Бесплатный старт 😉</span>
                             <svg class="w-8 h-8 text-gray-400 absolute -top-2 -left-4 transform rotate-180 scale-x-[-1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M7 7l10 10m0 0l-10 0m10 0l0-10" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
@@ -147,88 +143,175 @@
                     </div>
                 </div>
 
-                <!-- ПРАВАЯ ЧАСТЬ: Телефон и Атмосфера -->
+                <!-- Правая часть: Телефон -->
                 <div class="relative mx-auto lg:mr-0 mt-12 lg:mt-0">
-                    
-                    <!-- БЛОБЫ ЗА ТЕЛЕФОНОМ (Ярче и больше) -->
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
                     <div class="absolute top-1/2 right-10 -translate-y-1/2 w-[400px] h-[400px] bg-purple-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
                     
-                    <!-- ПЛАВАЮЩИЕ ИКОНКИ (Заполнение пустоты) -->
-                    <div class="absolute -left-12 top-40 animate-float-delayed hidden md:block">
-                         <div class="bg-white p-3 rounded-2xl shadow-lg border border-brand-100 transform -rotate-6">
-                            <span class="text-3xl">💅</span>
-                         </div>
-                    </div>
-                    <div class="absolute -right-8 top-20 animate-float hidden md:block">
-                        <div class="bg-white p-3 rounded-2xl shadow-lg border border-brand-100 transform rotate-12">
-                           <span class="text-3xl">📅</span>
-                        </div>
-                   </div>
-
-                   <!-- Мокап телефона -->
-                    <div class="relative z-10 mx-auto max-w-[340px]">
-                        <!-- Push Notification (Левитирует) -->
-                        <div class="absolute -left-8 top-16 z-30 bg-white/95 backdrop-blur px-5 py-4 rounded-3xl shadow-xl border border-white max-w-[260px] animate-float">
-                             <div class="flex items-start gap-3">
-                                <div class="w-10 h-10 rounded-full bg-brand-100 flex-shrink-0 flex items-center justify-center text-xl">🤖</div>
-                                <div>
-                                    <p class="text-xs font-bold text-gray-400 mb-0.5">TELEGRAM • NOW</p>
-                                    <p class="text-sm font-bold text-gray-800">✅ Визит подтвержден!</p>
-                                    <p class="text-xs text-gray-500">Клиент Ольга придет завтра в 14:00</p>
-                                </div>
-                             </div>
-                        </div>
-
-                        <!-- Main Screen (CSS Mockup) -->
+                    <!-- Мокап телефона (CSS) -->
+                    <div class="relative z-10 mx-auto max-w-[340px] animate-float">
                         <div class="rounded-[3rem] border-8 border-white bg-white shadow-2xl overflow-hidden h-[700px] w-full relative">
-                            <!-- Тут может быть картинка (скриншот) -->
-                            <!-- <img src="screen.png" class="w-full h-full object-cover"> -->
-                            
-                            <!-- Или CSS верстка (Пока оставляю заглушку, чтобы ты увидел суть) -->
-                            <div class="bg-gray-50 h-full w-full pt-12 px-5 pb-8 flex flex-col relative overflow-hidden">
-                                <!-- Декор внутри телефона -->
-                                <div class="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-brand-100/50 to-transparent pointer-events-none"></div>
-                                
-                                <h3 class="font-extrabold text-2xl text-gray-900 mb-6 relative z-10">Привет, Мастер! 👋</h3>
-                                
-                                <!-- Карточка дня (Имитируем твои новые скругленные карточки) -->
-                                <div class="bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)] mb-4 border border-gray-50 relative z-10">
+                            <!-- Заглушка интерфейса -->
+                            <div class="bg-gray-50 h-full w-full pt-12 px-5 pb-8 flex flex-col relative">
+                                <h3 class="font-extrabold text-2xl text-gray-900 mb-6">Привет, Мастер! 👋</h3>
+                                <div class="bg-white rounded-3xl p-5 shadow-sm mb-4 border border-gray-100">
                                     <div class="flex justify-between items-center mb-4">
-                                        <div class="text-gray-900 font-bold text-lg">Завтра, 17 Янв</div>
-                                        <div class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1.5 rounded-full">3 записи</div>
+                                        <div class="text-gray-900 font-bold">17 Января</div>
+                                        <div class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">3 записи</div>
                                     </div>
-                                    <!-- Слот -->
-                                    <div class="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
-                                        <div class="font-bold text-gray-500 w-12">10:00</div>
+                                    <div class="flex items-center gap-4 py-3 border-b border-gray-50">
+                                        <div class="font-bold text-gray-500 w-10">10:00</div>
                                         <div>
                                             <div class="font-bold text-gray-800">Маникюр</div>
                                             <div class="text-xs text-gray-400">Ольга (+7 900...)</div>
                                         </div>
                                         <div class="ml-auto text-xl">✅</div>
                                     </div>
-                                     <!-- Слот -->
-                                     <div class="flex items-center gap-4 py-3">
-                                        <div class="font-bold text-gray-500 w-12">14:00</div>
+                                    <div class="flex items-center gap-4 py-3">
+                                        <div class="font-bold text-gray-500 w-10">14:00</div>
                                         <div>
                                             <div class="font-bold text-gray-800">Педикюр</div>
-                                            <div class="text-xs text-gray-400">Ожидает подтверждения</div>
+                                            <div class="text-xs text-gray-400">Мария</div>
                                         </div>
                                         <div class="ml-auto text-xl opacity-30">⏳</div>
                                     </div>
                                 </div>
-                                
-                                <!-- Кнопка в телефоне -->
                                 <div class="mt-auto bg-brand-900 text-white h-14 rounded-2xl flex items-center justify-center font-bold text-lg shadow-xl hover:scale-[1.02] transition">
-                                    + Новая запись
+                                    + Добавить
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PROBLEMS BLOCK (ПОЧЕМУ ТЕРЯЕТЕ ДЕНЬГИ) -->
+    <section class="py-20 bg-white" id="problems">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Боли мастера</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900 mt-2">Почему вы теряете деньги?</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Проблема 1 -->
+                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">😴</div>
+                    <h3 class="font-bold text-xl mb-3 text-brand-900">Клиент забыл</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        И не пришел. Окошко сгорело, деньги потеряны. Remi снижает количество неявок на 80% благодаря умным напоминаниям.
+                    </p>
+                </div>
+                <!-- Проблема 2 -->
+                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">🤯</div>
+                    <h3 class="font-bold text-xl mb-3 text-brand-900">Забыли записать</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Записали на салфетке или в голове, а потом на это время пришло два человека. Remi исключает накладки.
+                    </p>
+                </div>
+                <!-- Проблема 3 -->
+                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-lg transition duration-300">
+                    <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">🤬</div>
+                    <h3 class="font-bold text-xl mb-3 text-brand-900">Стесняетесь</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Неудобно просить отзыв или третий раз писать "вы придете?". Робот делает это вежливо и без стеснения.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SYNC BLOCK (СИНХРОНИЗАЦИЯ С КАЛЕНДАРЯМИ) -->
+    <section class="py-24 bg-white overflow-hidden relative border-t border-brand-50" id="sync">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 mb-6">
+                    Вся запись — в родном календаре телефона.
+                </h2>
+                <p class="text-lg text-gray-500">
+                    Remi мгновенно синхронизирует записи с Google Календарем. Они сразу появляются на вашем iPhone или Android.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Визуализация -->
+                <div class="relative h-[450px] w-full bg-brand-50 rounded-[3rem] flex items-center justify-center border border-brand-100 shadow-inner">
+                    <div class="absolute inset-0 bg-dot-pattern opacity-30"></div>
+                    
+                    <!-- Center (Google) - Ссылка на иконку из сети -->
+                    <div class="absolute z-10 bg-white p-6 rounded-3xl shadow-xl">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar" class="w-20 h-20">
+                    </div>
+
+                    <!-- Элементы вокруг -->
+                    <div class="absolute top-10 left-10 md:top-16 md:left-20 bg-white p-4 rounded-2xl shadow-lg transform -rotate-6 w-40">
+                        <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase">iPhone Calendar</div>
+                        <div class="h-1.5 w-12 bg-gray-200 rounded mb-2"></div>
+                        <div class="h-8 w-full bg-red-50 rounded-md border-l-2 border-red-500"></div>
+                    </div>
+
+                    <div class="absolute bottom-10 right-10 md:bottom-20 md:right-20 bg-white p-4 rounded-2xl shadow-lg transform rotate-3 w-40">
+                         <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase">Android Widget</div>
+                         <div class="flex gap-2">
+                             <div class="w-1 h-8 bg-blue-500 rounded-full"></div>
+                             <div class="w-full h-8 bg-gray-100 rounded-md"></div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Текст Инструкции -->
+                <div>
+                    <div class="space-y-10">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-xl">1</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-brand-900">Подключите Remi</h3>
+                                <p class="text-gray-600 text-sm mt-1">Один раз дайте доступ к календарю при старте бота.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xl">2</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-brand-900">Включите на телефоне</h3>
+                                <p class="text-gray-600 text-sm mt-1">В настройках iPhone/Android активируйте "Контакты и Календари" для вашего Gmail.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xl">3</div>
+                            <div>
+                                <h3 class="font-bold text-lg text-brand-900">Готово! ✨</h3>
+                                <p class="text-gray-600 text-sm mt-1">Запись из Remi автоматически прилетит в виджет на вашем экране.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-gray-50 rounded-xl text-xs text-gray-500">
+                        🛡 <b>Privacy Note:</b> Мы используем официальный Google API и прошли проверку безопасности. Ваши данные под защитой.
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-900 text-brand-100 py-12 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-bold text-white mb-6">Попробуйте Remi сейчас</h2>
+            <a href="https://t.me/airmnd_bot" class="inline-block bg-brand-500 text-white px-8 py-3 rounded-full font-bold hover:bg-brand-600 transition">
+                Запустить бота
+            </a>
+            <div class="mt-12 text-sm text-gray-400 flex justify-center gap-6">
+                <a href="#" class="hover:text-white">Политика конфиденциальности</a>
+                <a href="#" class="hover:text-white">Публичная оферта</a>
+            </div>
+            <p class="mt-8 text-xs text-gray-500">
+                © 2026 Remi AI. Google Calendar™ is a trademark of Google LLC.
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
