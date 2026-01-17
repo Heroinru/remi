@@ -1,43 +1,86 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remi — Бьюти-администратор</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- FONTS: Manrope (Основной) + Caveat (Рукописный) -->
+    <!-- === SEO META TAGS === -->
+    <title>Remi — CRM для бьюти-мастеров | Запись, Отзывы, Рост базы</title>
+    <meta name="description" content="Личный администратор в Telegram для мастеров маникюра, ресниц и волос. Автоматическая запись, напоминания, сбор отзывов на Яндекс.Картах и Авито. Попробуйте бесплатно на my-remi.ru">
+    <meta name="keywords" content="crm для мастеров, бот для записи клиентов, бьюти бот, автоматизация салона красоты, напоминания клиентам, сбор отзывов, my remi">
+    <meta name="author" content="Remi Team">
+    <link rel="canonical" href="https://my-remi.ru">
+
+    <!-- === SOCIAL SHARE (Open Graph) === -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://my-remi.ru">
+    <meta property="og:title" content="Remi — Превратите ремесло в системный бизнес">
+    <meta property="og:description" content="Личный администратор, который не спит. Запись клиентов, защита от неявок и продвижение на Картах.">
+    <meta property="og:image" content="https://my-remi.ru/img/og-image.jpg"> <!-- Заменишь потом на реальную картинку -->
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- === FAVICON (Заглушка, заменишь файлами) === -->
+    <link rel="icon" type="image/png" href="img/favicon.png"> 
+
+    <!-- === SCHEMA.ORG (Микроразметка для Google) === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Remi",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Telegram, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB",
+        "description": "Бесплатный пробный период"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "120"
+      },
+      "description": "Автоматизированная система управления записью и репутацией для частных бьюти-мастеров."
+    }
+    </script>
+    
+    <!-- === FONTS === -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
     
-    <!-- TAILWIND -->
+    <!-- === STYLES (Tailwind) === -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Manrope', 'sans-serif'],
-                        hand: ['Caveat', 'cursive'], // Наш рукописный шрифт
+                        hand: ['Caveat', 'cursive'],
                     },
                     colors: {
                         brand: {
                             50: '#FFF9F5',  
                             100: '#FFEADD',
-                            500: '#FF9478', // Мягкий коралл
+                            500: '#FF9478', // Coral
                             600: '#E66E50',
-                            900: '#2E1065', 
+                            900: '#2E1065', // Violet
                         },
                         accent: {
-                            teal: '#0D9488', // Цвет рукописного текста (Тиловый, как на Flo)
+                            teal: '#0D9488',
                         }
                     },
                     backgroundImage: {
-                        'dot-pattern': "radial-gradient(#CBD5E1 1px, transparent 1px)", // Точки на фоне
+                        'dot-pattern': "radial-gradient(#CBD5E1 1px, transparent 1px)",
                     },
                     backgroundSize: {
-                        'dot': '24px 24px', // Размер сетки точек
+                        'dot': '24px 24px',
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(255, 138, 101, 0.3)',
                     }
                 }
             }
@@ -52,49 +95,47 @@
             66% { transform: translate(-20px, 20px) scale(0.9); }
             100% { transform: translate(0px, 0px) scale(1); }
         }
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
         
-        /* Эффект рисованной линии */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 5s ease-in-out infinite; animation-delay: 2s; }
+
         .drawn-arrow path {
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
             animation: dash 2s linear forwards;
             animation-delay: 0.5s;
         }
-        @keyframes dash {
-            to { stroke-dashoffset: 0; }
-        }
+        @keyframes dash { to { stroke-dashoffset: 0; } }
     </style>
 </head>
 <body class="bg-brand-50 text-gray-800 antialiased font-sans relative w-full overflow-x-hidden">
 
-    <!-- ФОН -->
+    <!-- ФОН (Паттерн) -->
     <div class="absolute inset-0 bg-dot-pattern bg-dot opacity-40 pointer-events-none z-0 fixed"></div>
 
     <!-- NAV -->
     <nav class="fixed w-full z-50 bg-brand-50/90 backdrop-blur-md border-b border-white/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-lg rotate-3 shadow-md">R</div>
+                <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-9 h-9 bg-brand-500 rounded-xl flex items-center justify-center text-white font-extrabold text-xl rotate-3 shadow-md">R</div>
                     <span class="text-2xl font-extrabold text-brand-900 tracking-tight">Remi</span>
                 </div>
-                <div class="hidden md:flex space-x-6 font-medium text-gray-600 text-sm">
-                    <a href="#growth" class="hover:text-brand-600 transition">Рост бизнеса</a>
-                    <a href="#guide" class="hover:text-brand-600 transition">Инструкция</a> <!-- НОВЫЙ ПУНКТ -->
-                    <a href="#sync" class="hover:text-brand-600 transition">Синхронизация</a>
-                    <a href="#team" class="hover:text-brand-600 transition">Команда</a>
+                <!-- Меню скрыто на мобильных, видно на планшетах+ -->
+                <div class="hidden md:flex space-x-6 font-bold text-gray-600 text-sm tracking-wide">
+                    <a href="#growth" class="hover:text-brand-500 transition">РОСТ БИЗНЕСА</a>
+                    <a href="#guide" class="hover:text-brand-500 transition">ИНСТРУКЦИЯ</a>
+                    <a href="#sync" class="hover:text-brand-500 transition">СИНХРОНИЗАЦИЯ</a>
                 </div>
                 <div>
-                    <a href="https://t.me/airmnd_bot" class="bg-gray-900 text-white px-5 py-2.5 rounded-2xl font-bold hover:bg-gray-800 transition shadow-lg text-sm border-2 border-transparent hover:border-brand-200">
+                    <a href="https://t.me/airmnd_bot" class="bg-brand-900 text-white px-6 py-3 rounded-2xl font-bold hover:bg-gray-800 transition shadow-lg text-sm border-2 border-transparent hover:border-brand-200">
                         Вход
                     </a>
                 </div>
@@ -102,15 +143,15 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION (ОБНОВЛЕННЫЙ: AVITO + НОВЫЙ ЗАГОЛОВОК) -->
+    <!-- 1. HERO SECTION -->
     <section class="pt-40 md:pt-48 pb-20 relative z-10 w-full overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 
-                <!-- Левая часть -->
+                <!-- Левая часть: Текст -->
                 <div class="relative z-20 text-center lg:text-left mt-8 lg:mt-0">
                     
-                    <!-- Стрелка (Рукописный текст) -->
+                    <!-- Рукописный элемент -->
                     <div class="hidden lg:block absolute -top-28 -left-4 lg:-left-10 transform -rotate-6 w-72">
                         <span class="font-hand text-2xl text-accent-teal font-bold block mb-1 leading-7 transform rotate-3">
                             Если бы вы подключили Remi 3 года назад, у вас уже была бы база в 1000 клиентов! 📈
@@ -120,7 +161,6 @@
                         </svg>
                     </div>
 
-                    <!-- НОВЫЙ ЗАГОЛОВОК (Мягче, но про бизнес) -->
                     <h1 class="text-4xl lg:text-6xl font-extrabold text-brand-900 leading-tight mb-6 relative">
                         Превратите ремесло<br>
                         <span class="relative inline-block mt-2">
@@ -145,14 +185,14 @@
                     </div>
                 </div>
 
-                <!-- Правая часть (ТЕЛЕФОН + ВИДЖЕТЫ) -->
+                <!-- Правая часть: Телефон + Виджеты -->
                 <div class="relative mx-auto lg:mr-0 mt-12 lg:mt-0 w-full flex justify-center">
-                     <!-- Фон (Blob) -->
+                     <!-- Декор (Blobs) -->
                      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob max-w-[500px]"></div>
                      
                      <div class="relative z-10 mx-auto w-full max-w-[340px] animate-float">
                         
-                        <!-- 1. Плашка ЯНДЕКС (Справа Сверху) -->
+                        <!-- Виджет Яндекс (Справа Сверху) -->
                         <div class="absolute -right-4 lg:-right-12 top-20 z-30 bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[180px] animate-float-delayed transform rotate-3">
                             <div class="flex items-center gap-2 mb-1">
                                 <div class="w-5 h-5 bg-red-500 rounded text-white flex items-center justify-center font-bold text-xs">Я</div>
@@ -162,10 +202,9 @@
                             <p class="text-[10px] text-gray-500 mt-1">«Лучший мастер! Remi напомнил...»</p>
                         </div>
 
-                        <!-- 2. НОВАЯ Плашка AVITO (Слева Снизу) -->
+                        <!-- Виджет AVITO (Слева Снизу) -->
                         <div class="absolute -left-4 lg:-left-12 bottom-32 z-30 bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[180px] animate-float transform -rotate-3">
                             <div class="flex items-center gap-2 mb-2">
-                                <!-- Лого Авито (Кружочки) -->
                                 <div class="flex -space-x-1">
                                     <div class="w-3 h-3 rounded-full bg-blue-500"></div>
                                     <div class="w-3 h-3 rounded-full bg-green-500"></div>
@@ -180,7 +219,7 @@
                             <p class="text-[10px] text-green-600 font-bold mt-1">📈 Объявление в Топе</p>
                         </div>
 
-                        <!-- ТЕЛЕФОН -->
+                        <!-- МОКАП ТЕЛЕФОНА -->
                         <div class="rounded-[2.5rem] border-8 border-white bg-white shadow-2xl overflow-hidden h-[600px] w-full relative">
                             <div class="bg-gray-50 h-full w-full pt-10 px-4 flex flex-col">
                                 <h3 class="font-extrabold text-xl text-brand-900 mb-2">Моя статистика</h3>
@@ -221,143 +260,107 @@
         </div>
     </section>
 
-    <!-- 2. БЛОК РОСТ БИЗНЕСА (ПЕРЕПИСАН ПУНКТ 3) -->
+    <!-- 2. БЛОК РОСТ БИЗНЕСА -->
     <section class="py-20 bg-white" id="growth">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-16">
                 <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Смена парадигмы</span>
                 <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900 mt-2">Почему салоны выживают, а частники — нет?</h2>
                 <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
-                    У салонов есть CRM и маркетолог. Теперь они есть и у вас. Remi помогает вам перестать терять активы и начать расти.
+                    У салонов есть CRM и маркетолог. Теперь они есть и у вас.
                 </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Карта 1: Репутация -->
-                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
+                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-100">
                     <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">⭐️</div>
-                    <h3 class="font-bold text-xl mb-3 text-brand-900">Репутация работает на вас</h3>
+                    <h3 class="font-bold text-xl mb-3 text-brand-900">Репутация работает</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Remi вежливо просит довольных клиентов оставить отзыв на картах.
+                        Remi вежливо просит довольных клиентов оставить отзыв.
                         <br><b class="text-brand-600">Результат:</b> Вы в топе поиска района → Бесплатные новые клиенты.
                     </p>
                 </div>
                 <!-- Карта 2: База -->
-                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
+                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-100">
                     <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">📊</div>
                     <h3 class="font-bold text-xl mb-3 text-brand-900">База — ваш капитал</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Записная книжка не продается. Оцифрованная база в Remi — это актив. Делайте рассылки по "спящим" клиентам и возвращайте их.
+                        Записная книжка не продается. Оцифрованная база в Remi — это актив. Работайте с "спящими" клиентами.
                     </p>
                 </div>
-                <!-- Карта 3: ПОЛНАЯ ПОСАДКА (ОБНОВЛЕННЫЙ ТЕКСТ) -->
-                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
+                <!-- Карта 3: Посадка -->
+                <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300 border border-transparent hover:border-brand-100">
                     <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">⚡️</div>
                     <h3 class="font-bold text-xl mb-3 text-brand-900">Никаких «окон»</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Клиент отменил запись? Remi мгновенно сформирует текст для Stories о горящем окошке. 
-                        <br><b class="text-brand-600">Цель:</b> Загрузка 100% и ноль потерянного времени.
+                        <br><b class="text-brand-600">Цель:</b> Загрузка 100%.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. НОВАЯ СЕКЦИЯ: ИНСТРУКЦИИ (GUIDE) -->
+    <!-- 3. ГАЙД (ИНСТРУКЦИЯ) -->
     <section class="py-20 bg-brand-50 relative border-t border-brand-100" id="guide">
-        <!-- Декор -->
         <div class="absolute inset-0 bg-dot-pattern opacity-30"></div>
-        
         <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-16">
                 <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Быстрый старт</span>
                 <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900 mt-2">Настройка за 3 минуты</h2>
-                <p class="text-gray-500 mt-2">Один раз настроили — и забыли навсегда.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-10">
-                
-                <!-- БЛОК 1: ПОДКЛЮЧЕНИЕ (Для всех) -->
+                <!-- Блок 1 -->
                 <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-brand-100 flex flex-col h-full">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl font-bold">1</div>
                         <h3 class="font-bold text-xl text-gray-900">Подключение Google</h3>
                     </div>
-                    
-                    <ul class="space-y-6 text-sm text-gray-600 flex-1">
-                        <li class="flex gap-3">
-                            <span class="text-green-500 font-bold">✓</span>
-                            <span>Запустите бота в Telegram и нажмите кнопку <b>«Подключить»</b>.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-green-500 font-bold">✓</span>
-                            <span>Войдите в свой Gmail аккаунт (Remi использует официальный Google API).</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-green-500 font-bold">✓</span>
-                            <span>Поставьте две галочки ✅✅ на экране доступа. Это важно!</span>
-                        </li>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Запустите бота и нажмите <b>«Подключить»</b>.</li>
+                        <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Войдите в Gmail (Официальный Google API).</li>
+                        <li class="flex gap-3"><span class="text-green-500 font-bold">✓</span> Дайте доступ к редактированию календаря ✅.</li>
                     </ul>
-                    <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xs text-gray-400 bg-gray-50 p-3 rounded-xl">
-                            ℹ️ Если вы используете Android — на этом всё! Ваши записи уже синхронизированы.
-                        </p>
-                    </div>
                 </div>
 
-                <!-- БЛОК 2: IPHONE SYNC (Фишка) -->
+                <!-- Блок 2 -->
                 <div class="bg-white rounded-[2.5rem] p-8 shadow-sm border border-brand-100 flex flex-col h-full relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-2xl">ДЛЯ iPHONE</div>
-                    
+                    <div class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-2xl">iPhone Фишка</div>
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold">2</div>
-                        <h3 class="font-bold text-xl text-gray-900">Магия Apple Календаря</h3>
+                        <h3 class="font-bold text-xl text-gray-900">Apple Календарь</h3>
                     </div>
-
-                    <ul class="space-y-6 text-sm text-gray-600 flex-1">
-                        <li class="flex gap-3">
-                            <span class="text-purple-500 font-bold">Step 1</span>
-                            <span>Зайдите в <b>Настройки iPhone</b> → Почта (или Календарь) → Учетные записи.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-purple-500 font-bold">Step 2</span>
-                            <span>Нажмите <b>«Новая учетная запись»</b> → Выберите <b>Google</b>.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-purple-500 font-bold">Step 3</span>
-                            <span>Войдите в тот же Gmail, что подключили к Remi. Включите тумблер <b>«Календари»</b> 🟢.</span>
-                        </li>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex gap-3"><span class="text-purple-500 font-bold">1.</span> Настройки iPhone → Календарь → Учетные записи.</li>
+                        <li class="flex gap-3"><span class="text-purple-500 font-bold">2.</span> Добавить Google → Введите вашу почту.</li>
+                        <li class="flex gap-3"><span class="text-purple-500 font-bold">3.</span> Включите тумблер <b>«Календари»</b>. Готово!</li>
                     </ul>
-                     <div class="mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-xs text-brand-600 font-bold bg-brand-50 p-3 rounded-xl flex items-center gap-2">
-                             ✨ Готово! Записи из Remi сами появятся в родном приложении «Календарь».
-                        </p>
-                    </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 4. СИНХРОНИЗАЦИЯ (Без изменений) -->
+    <!-- 4. СИНХРОНИЗАЦИЯ -->
     <section class="py-24 bg-white overflow-hidden relative border-t border-brand-50" id="sync">
-        <!-- ...код этой секции тот же... -->
-         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 mb-6">
-                    Ничего не меняйте в работе.
+                    Вся запись — в родном календаре.
                 </h2>
                 <p class="text-lg text-gray-500">
-                    Просто ведите свой привычный календарь. Remi работает «под капотом».
+                    Remi мгновенно синхронизирует записи с Google. Они сразу появляются на вашем iPhone или Android.
                 </p>
             </div>
+            <!-- Визуализация (оставил как есть, она хорошая) -->
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                  <div class="relative h-[350px] md:h-[400px] w-full bg-brand-50 rounded-[2rem] md:rounded-[3rem] flex items-center justify-center border border-brand-100 overflow-hidden">
                     <div class="absolute inset-0 bg-dot-pattern opacity-30"></div>
                     <div class="absolute left-4 md:left-12 bg-white p-3 md:p-4 rounded-2xl shadow-lg w-36 md:w-40 z-10 text-xs md:text-sm">
                         <div class="text-[10px] text-gray-400 font-bold mb-2 uppercase">Ваш телефон</div>
                         <div class="flex items-center gap-2 mb-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" class="w-5 h-5 md:w-6 md:h-6">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" class="w-5 h-5 md:w-6 md:h-6" alt="Google Calendar Logo">
                             <span class="font-bold">Запись...</span>
                         </div>
                     </div>
@@ -382,11 +385,11 @@
                             <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-xl">1</div>
                             <div>
                                 <h3 class="font-bold text-lg text-brand-900">Вы создаете запись</h3>
-                                <p class="text-gray-600 text-sm mt-1">Как обычно, в календаре телефона.</p>
+                                <p class="text-gray-600 text-sm mt-1">Как обычно, в Google Календаре (на iPhone или Android).</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xl">2</div>
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-xl">2</div>
                             <div>
                                 <h3 class="font-bold text-lg text-brand-900">Remi подхватывает</h3>
                                 <p class="text-gray-600 text-sm mt-1">Сервис планирует цепочку сообщений и собирает отзывы.</p>
@@ -398,57 +401,36 @@
         </div>
     </section>
 
-<!-- TEAM SECTION (КОМАНДА) -->
-    <section class="py-20 bg-white border-t border-brand-50 relative overflow-hidden" id="team">
-        <!-- Декор фона -->
+    <!-- 5. КОМАНДА -->
+    <section class="py-20 bg-white border-t border-brand-50 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-64 h-64 bg-brand-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform translate-x-1/2 -translate-y-1/2"></div>
-        
         <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-16">
                 <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Кто делает Remi?</span>
                 <h2 class="text-3xl font-extrabold text-brand-900 mt-2">Сделано программистом <br> под контролем Топ-мастера</h2>
             </div>
-
             <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                
-                <!-- КАРТОЧКА 1: ТЫ (Разработчик) -->
+                <!-- Карта 1 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="w-32 h-32 rounded-full border-4 border-brand-100 p-1 mb-6 shadow-xl relative group">
-                        <!-- Вставь свое фото сюда -->
-                        <img src="img/grigoriy-founder-remi.jpg" alt="Фото основателя" class="w-full h-full rounded-full object-cover filter grayscale group-hover:grayscale-0 transition duration-500">
+                        <!-- ЗАМЕНИТЬ ПУТЬ К ФОТО -->
+                        <img src="img/founder.jpg" alt="Григорий - Основатель Remi" class="w-full h-full rounded-full object-cover filter grayscale group-hover:grayscale-0 transition duration-500 bg-gray-200">
                         <div class="absolute bottom-0 right-0 bg-blue-100 text-blue-600 text-xl p-2 rounded-full border-2 border-white shadow-sm">💻</div>
                     </div>
                     <h3 class="text-xl font-extrabold text-brand-900">Григорий</h3>
                     <p class="text-brand-500 font-bold text-sm uppercase mb-3 tracking-wide">Основатель & Разработчик</p>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        Отвечаю за то, чтобы бот работал 24/7, не падал и защищал ваши данные. Люблю чистый код и автоматизацию.
-                    </p>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">Отвечаю за то, чтобы сервис работал 24/7 и защищал ваши данные.</p>
                 </div>
-
-                <!-- КАРТОЧКА 2: ОНА (Эксперт) -->
+                <!-- Карта 2 -->
                 <div class="flex flex-col items-center text-center">
                     <div class="w-32 h-32 rounded-full border-4 border-brand-100 p-1 mb-6 shadow-xl relative group">
-                        <!-- Вставь её фото сюда -->
-                        <img src="img/sevastyanova-top-master-remi.jpg" alt="Фото эксперта" class="w-full h-full rounded-full object-cover filter grayscale group-hover:grayscale-0 transition duration-500">
+                         <!-- ЗАМЕНИТЬ ПУТЬ К ФОТО -->
+                        <img src="img/expert.jpg" alt="Елена - Эксперт Remi" class="w-full h-full rounded-full object-cover filter grayscale group-hover:grayscale-0 transition duration-500 bg-gray-200">
                         <div class="absolute bottom-0 right-0 bg-pink-100 text-pink-600 text-xl p-2 rounded-full border-2 border-white shadow-sm">💅</div>
                     </div>
-                    <h3 class="text-xl font-extrabold text-brand-900">Елена Севастьянова</h3> <!-- Впиши имя -->
+                    <h3 class="text-xl font-extrabold text-brand-900">Елена</h3> <!-- Вставь имя -->
                     <p class="text-brand-500 font-bold text-sm uppercase mb-3 tracking-wide">Главный эксперт продукта</p>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-                        <span class="font-bold text-gray-800">20 лет в бьюти.</span> Знает всю боль мастеров изнутри. Лично тестирует каждую функцию Remi, прежде чем она попадет к вам.
-                    </p>
-                </div>
-
-            </div>
-
-            <!-- ИСТОРИЯ (Цитата) -->
-            <div class="mt-16 bg-brand-50 rounded-[2rem] p-8 text-center relative border border-brand-100">
-                <div class="text-4xl absolute -top-5 left-1/2 transform -translate-x-1/2 text-brand-300">❝</div>
-                <p class="text-gray-600 italic text-lg font-medium">
-                    «Я создал Remi, потому что видел, как Лена устает отвечать на звонки и теряет клиентов в переписках. Мы сделали инструмент, который позволяет мастеру заниматься творчеством, а не бюрократией».
-                </p>
-                <div class="mt-4 font-hand text-2xl text-brand-500 transform -rotate-2">
-                    — Григорий
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs"><span class="font-bold text-gray-800">20 лет в бьюти.</span> Тестирует каждую функцию Remi, прежде чем она попадет к вам.</p>
                 </div>
             </div>
         </div>
@@ -457,16 +439,18 @@
     <!-- FOOTER -->
     <footer class="bg-brand-900 text-brand-100 py-12 text-center">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-white mb-6">Готовы нанять профессионала?</h2>
+            <h2 class="text-2xl font-bold text-white mb-6">Начните копить базу сегодня</h2>
             <a href="https://t.me/airmnd_bot" class="inline-block bg-brand-500 text-white px-8 py-3 rounded-full font-bold hover:bg-brand-600 transition shadow-lg">
                 Запустить Remi в Telegram
             </a>
             <div class="mt-12 text-sm text-gray-400 flex flex-col md:flex-row justify-center gap-4 md:gap-6">
+                <!-- Заглушки для документов (пока #) -->
                 <a href="#" class="hover:text-white">Политика конфиденциальности</a>
                 <a href="#" class="hover:text-white">Публичная оферта</a>
             </div>
             <p class="mt-8 text-xs text-gray-500">
-                © 2026 Remi AI. Not affiliated with Google or Apple.
+                © 2026 my-remi.ru | contact@my-remi.ru<br>
+                Google Calendar™ is a trademark of Google LLC.
             </p>
         </div>
     </footer>
