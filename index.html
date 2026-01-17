@@ -101,8 +101,7 @@
         </div>
     </nav>
 
-    <!-- 1. HERO SECTION (ИСПРАВЛЕНО НАЛОЖЕНИЕ) -->
-    <!-- Изменил pt-36 на pt-40 md:pt-48, чтобы опустить контент -->
+    <!-- 1. HERO SECTION (ОБНОВЛЕННЫЙ: AVITO + НОВЫЙ ЗАГОЛОВОК) -->
     <section class="pt-40 md:pt-48 pb-20 relative z-10 w-full overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -110,8 +109,7 @@
                 <!-- Левая часть -->
                 <div class="relative z-20 text-center lg:text-left mt-8 lg:mt-0">
                     
-                    <!-- ИСПРАВЛЕННАЯ СТРЕЛКА: Координаты изменены -->
-                    <!-- absolute -top-24 (было top-36) -->
+                    <!-- Стрелка (Рукописный текст) -->
                     <div class="hidden lg:block absolute -top-28 -left-4 lg:-left-10 transform -rotate-6 w-72">
                         <span class="font-hand text-2xl text-accent-teal font-bold block mb-1 leading-7 transform rotate-3">
                             Если бы вы подключили Remi 3 года назад, у вас уже была бы база в 1000 клиентов! 📈
@@ -121,17 +119,17 @@
                         </svg>
                     </div>
 
+                    <!-- НОВЫЙ ЗАГОЛОВОК (Мягче, но про бизнес) -->
                     <h1 class="text-4xl lg:text-6xl font-extrabold text-brand-900 leading-tight mb-6 relative">
-                        Хватит просто «пилить»!<br>
+                        Превратите ремесло<br>
                         <span class="relative inline-block mt-2">
-                            Стройте бизнес
+                            в системный бизнес.
                             <span class="absolute bottom-2 left-0 w-full h-3 bg-yellow-200 -z-10 rounded-sm transform -rotate-1 opacity-70"></span>
                         </span>
-                        на своей базе.
                     </h1>
                     
                     <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                        Remi — это не просто напоминалка. Это система, которая <b>автоматически собирает отзывы</b> на Яндекс.Картах и формирует ваш главный актив — <b>Клиентскую Базу</b>.
+                        Remi забирает рутину: ведет запись, <b>собирает отзывы</b> для Яндекс/Авито и формирует вашу <b>Клиентскую Базу</b>, пока вы заняты процедурами.
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center relative">
@@ -140,17 +138,20 @@
                             <span class="ml-2 group-hover:translate-x-1 transition">🚀</span>
                         </a>
                         <div class="text-xs text-gray-500 font-medium text-left space-y-1">
-                            <span class="block">🔥 Продвижение на картах</span>
-                            <span class="block">💎 Защита от потери клиентов</span>
+                            <span class="block">🔥 Топ на Яндекс.Картах</span>
+                            <span class="block">💎 Авто-заполнение окон</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Правая часть (без изменений) -->
+                <!-- Правая часть (ТЕЛЕФОН + ВИДЖЕТЫ) -->
                 <div class="relative mx-auto lg:mr-0 mt-12 lg:mt-0 w-full flex justify-center">
-                     <!-- ...код телефона тот же... -->
+                     <!-- Фон (Blob) -->
                      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob max-w-[500px]"></div>
+                     
                      <div class="relative z-10 mx-auto w-full max-w-[340px] animate-float">
+                        
+                        <!-- 1. Плашка ЯНДЕКС (Справа Сверху) -->
                         <div class="absolute -right-4 lg:-right-12 top-20 z-30 bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[180px] animate-float-delayed transform rotate-3">
                             <div class="flex items-center gap-2 mb-1">
                                 <div class="w-5 h-5 bg-red-500 rounded text-white flex items-center justify-center font-bold text-xs">Я</div>
@@ -159,6 +160,26 @@
                             <div class="flex text-yellow-400 text-sm">★★★★★</div>
                             <p class="text-[10px] text-gray-500 mt-1">«Лучший мастер! Remi напомнил...»</p>
                         </div>
+
+                        <!-- 2. НОВАЯ Плашка AVITO (Слева Снизу) -->
+                        <div class="absolute -left-4 lg:-left-12 bottom-32 z-30 bg-white px-4 py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[180px] animate-float transform -rotate-3">
+                            <div class="flex items-center gap-2 mb-2">
+                                <!-- Лого Авито (Кружочки) -->
+                                <div class="flex -space-x-1">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                </div>
+                                <span class="font-bold text-gray-800 text-xs">Авито Услуги</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-gray-900">4.9</span>
+                                <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                            </div>
+                            <p class="text-[10px] text-green-600 font-bold mt-1">📈 Объявление в Топе</p>
+                        </div>
+
+                        <!-- ТЕЛЕФОН -->
                         <div class="rounded-[2.5rem] border-8 border-white bg-white shadow-2xl overflow-hidden h-[600px] w-full relative">
                             <div class="bg-gray-50 h-full w-full pt-10 px-4 flex flex-col">
                                 <h3 class="font-extrabold text-xl text-brand-900 mb-2">Моя статистика</h3>
@@ -181,6 +202,15 @@
                                         </div>
                                         <div class="ml-auto text-green-500">✅</div>
                                     </div>
+                                    <!-- Имитация заполненности -->
+                                    <div class="flex items-center gap-3 py-2 opacity-50">
+                                        <div class="bg-gray-100 text-gray-400 font-bold rounded-lg w-10 h-10 flex items-center justify-center text-xs">16:30</div>
+                                        <div>
+                                            <div class="font-bold text-sm text-gray-400">Свободное окно</div>
+                                            <div class="text-[10px] text-brand-500 font-bold">Ищу клиента...</div>
+                                        </div>
+                                        <div class="ml-auto text-brand-500">🤖</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +220,7 @@
         </div>
     </section>
 
-    <!-- 2. БЛОК РОСТ БИЗНЕСА (Без изменений) -->
+    <!-- 2. БЛОК РОСТ БИЗНЕСА (ПЕРЕПИСАН ПУНКТ 3) -->
     <section class="py-20 bg-white" id="growth">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-16">
@@ -202,7 +232,7 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Карта 1 -->
+                <!-- Карта 1: Репутация -->
                 <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
                     <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">⭐️</div>
                     <h3 class="font-bold text-xl mb-3 text-brand-900">Репутация работает на вас</h3>
@@ -211,20 +241,21 @@
                         <br><b class="text-brand-600">Результат:</b> Вы в топе поиска района → Бесплатные новые клиенты.
                     </p>
                 </div>
-                <!-- Карта 2 -->
+                <!-- Карта 2: База -->
                 <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
                     <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">📊</div>
                     <h3 class="font-bold text-xl mb-3 text-brand-900">База — ваш капитал</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Записная книжка не продается. Оцифрованная база в Remi — это актив. Делайте рассылки по "спящим" клиентам.
+                        Записная книжка не продается. Оцифрованная база в Remi — это актив. Делайте рассылки по "спящим" клиентам и возвращайте их.
                     </p>
                 </div>
-                <!-- Карта 3 -->
+                <!-- Карта 3: ПОЛНАЯ ПОСАДКА (ОБНОВЛЕННЫЙ ТЕКСТ) -->
                 <div class="bg-brand-50 p-8 rounded-[2rem] hover:shadow-xl transition-all duration-300">
-                    <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">🛡</div>
-                    <h3 class="font-bold text-xl mb-3 text-brand-900">Защита выручки</h3>
+                    <div class="text-4xl mb-4 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">⚡️</div>
+                    <h3 class="font-bold text-xl mb-3 text-brand-900">Никаких «окон»</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Напоминания — это база. Но Remi также страхует вас от пустых окон, моментально предлагая время в сторис.
+                        Клиент отменил запись? Remi мгновенно сформирует текст для Stories о горящем окошке. 
+                        <br><b class="text-brand-600">Цель:</b> Загрузка 100% и ноль потерянного времени.
                     </p>
                 </div>
             </div>
