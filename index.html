@@ -143,8 +143,8 @@
         </div>
     </nav>
 
-  <!-- 1. HERO SECTION: ПОЛНЫЙ БЛОК -->
-    <section class="pt-32 md:pt-44 pb-10 relative z-10 w-full overflow-hidden">
+  <!-- 1. HERO SECTION: FINAL VERSION (FIXED ANGLES & MOBILE) -->
+    <section class="pt-32 md:pt-44 pb-12 relative z-10 w-full overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 
@@ -187,17 +187,16 @@
                     <!-- Контейнер -->
                     <div class="relative w-full max-w-[340px] animate-float z-10">
 
-                        <!-- 1. GOOGLE MAPS (СЗАДИ, СЛЕВА-СВЕРХУ) -->
-                        <!-- Выдвинул: -left-4 (mob) / -left-16 (desk), top-0 (mob) / top-8 (desk) -->
-                        <div class="absolute -left-4 md:-left-16 top-0 md:top-8 z-0 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-lg border border-gray-100 max-w-[140px] md:max-w-[170px] transform -rotate-12 opacity-100">
+                        <!-- 1. GOOGLE MAPS (СЗАДИ, ЧАСТИЧНО ЗА ТЕЛЕФОНОМ) -->
+                        <!-- На мобильном: top-4, left-0 (чуть выше, чтобы торчал). На ПК: -left-12 -->
+                        <div class="absolute -left-0 top-4 md:-left-12 md:top-10 z-0 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-lg border border-gray-100 max-w-[140px] md:max-w-[170px] transform -rotate-12 opacity-100 origin-bottom-right">
                             <div class="flex items-center gap-2 mb-1">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" class="w-4 h-4 md:w-5 md:h-5" alt="G">
                                 <span class="font-bold text-gray-600 text-[10px] md:text-xs">Google Maps</span>
                             </div>
                             <div class="flex text-yellow-400 text-[10px]">★★★★★</div>
-                            <!-- Добавил текст для объема -->
+                            <!-- Имитация текста -->
                             <div class="h-1.5 w-16 bg-gray-100 rounded-full mt-2"></div>
-                            <div class="h-1.5 w-10 bg-gray-100 rounded-full mt-1"></div>
                         </div>
 
                         <!-- 2. МОКАП ТЕЛЕФОНА (ЦЕНТР) -->
@@ -248,7 +247,7 @@
                         </div>
 
                         <!-- 3. ЯНДЕКС КАРТЫ (СПРАВА СВЕРХУ) -->
-                        <div class="absolute -right-3 md:-right-20 top-12 md:top-24 z-30 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[140px] md:max-w-[180px] animate-float-delayed transform rotate-6">
+                        <div class="absolute -right-3 md:-right-16 top-16 md:top-24 z-30 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[140px] md:max-w-[180px] transform rotate-6 animate-float-delayed">
                             <div class="flex items-center gap-2 mb-1">
                                 <div class="w-4 h-4 md:w-5 md:h-5 bg-red-500 rounded text-white flex items-center justify-center font-bold text-[10px]">Я</div>
                                 <span class="font-bold text-gray-800 text-[10px] md:text-xs">Яндекс Карты</span>
@@ -258,7 +257,7 @@
                         </div>
 
                         <!-- 4. 2ГИС (СПРАВА СНИЗУ) -->
-                        <div class="absolute -right-4 md:-right-14 bottom-32 md:bottom-44 z-30 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[130px] md:max-w-[160px] animate-float transform -rotate-3">
+                        <div class="absolute -right-4 md:-right-10 bottom-32 md:bottom-44 z-30 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[130px] md:max-w-[160px] transform -rotate-3 animate-float">
                             <div class="flex items-center gap-2 mb-1">
                                 <div class="w-4 h-4 md:w-5 md:h-5 bg-[#75C044] rounded-full text-white flex items-center justify-center font-bold text-[8px]">2</div>
                                 <span class="font-bold text-gray-800 text-[10px] md:text-xs">2ГИС</span>
@@ -270,7 +269,7 @@
                         </div>
 
                         <!-- 5. АВИТО (СЛЕВА СНИЗУ) -->
-                        <div class="absolute -left-3 md:-left-20 bottom-16 md:bottom-24 z-30 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[130px] md:max-w-[180px] animate-float transform rotate-6">
+                        <div class="absolute -left-3 md:-left-16 bottom-16 md:bottom-24 z-30 bg-white px-3 py-2 md:px-4 md:py-3 rounded-2xl shadow-xl border border-gray-100 max-w-[130px] md:max-w-[180px] transform rotate-6 animate-float-delayed">
                             <div class="flex items-center gap-2 mb-2">
                                 <div class="flex -space-x-1">
                                     <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
