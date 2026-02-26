@@ -287,6 +287,136 @@
         </div>
     </section>
 
+    <!-- ИНТЕРАКТИВНЫЙ БЛОК: КАК ЭТО РАБОТАЕТ ВНУТРИ -->
+    <section class="py-20 bg-brand-50 relative overflow-hidden" id="interactive-demo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            
+            <div class="text-center mb-16">
+                <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Интерфейс</span>
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900 mt-2">
+                    Всё управление — прямо в Telegram
+                </h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto text-lg">
+                    Не нужно качать новые приложения. Выбирайте функцию ниже, чтобы посмотреть, как это выглядит.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- ЛЕВАЯ ЧАСТЬ: ИНТЕРАКТИВНЫЕ ВКЛАДКИ -->
+                <!-- На мобильном они будут скроллиться по горизонтали, на ПК - список -->
+                <div class="lg:col-span-5 order-2 lg:order-1 flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-4 lg:pb-0 snap-x no-scrollbar" id="tab-buttons">
+                    
+                    <!-- Вкладка 1: Дашборд -->
+                    <button class="demo-tab active flex-shrink-0 w-[280px] lg:w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 border-brand-500 bg-white shadow-lg snap-center" data-target="screen-dash">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center text-xl">📊</div>
+                            <h3 class="font-bold text-lg text-gray-900">Умная аналитика</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 hidden lg:block">Виджет с доходами, где показан ваш факт, будущие записи и деньги, которые можно заработать прямо сейчас, закрыв окна.</p>
+                    </button>
+
+                    <!-- Вкладка 2: Календарь -->
+                    <button class="demo-tab flex-shrink-0 w-[280px] lg:w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 border-transparent bg-white/50 hover:bg-white snap-center" data-target="screen-cal">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center text-xl">📅</div>
+                            <h3 class="font-bold text-lg text-gray-900">График и Визиты</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 hidden lg:block">Отмечайте клиентов в 1 клик. Если кто-то отменился, Remi предложит сгенерировать пост для поиска замены.</p>
+                    </button>
+
+                    <!-- Вкладка 3: Авто-отзывы -->
+                    <button class="demo-tab flex-shrink-0 w-[280px] lg:w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 border-transparent bg-white/50 hover:bg-white snap-center" data-target="screen-bot">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center text-xl">⭐️</div>
+                            <h3 class="font-bold text-lg text-gray-900">Сбор отзывов</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 hidden lg:block">На следующий день после визита бот заботливо просит оценку. Довольных клиентов направляет на Яндекс, Google и 2ГИС.</p>
+                    </button>
+
+                    <!-- Вкладка 4: SOS -->
+                    <button class="demo-tab flex-shrink-0 w-[280px] lg:w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 border-transparent bg-white/50 hover:bg-white snap-center" data-target="screen-sos">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 bg-red-50 rounded-xl flex items-center justify-center text-xl">🆘</div>
+                            <h3 class="font-bold text-lg text-gray-900">SOS-режим</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 hidden lg:block">Форс-мажор? Выберите дни, и Remi массово, но персонально извинится перед клиентами и отменит запись.</p>
+                    </button>
+
+                </div>
+
+                <!-- ПРАВАЯ ЧАСТЬ: МОКАП ТЕЛЕФОНА С ЭКРАНАМИ -->
+                <div class="lg:col-span-7 order-1 lg:order-2 flex justify-center relative">
+                    <!-- Задний свет -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-300 rounded-full filter blur-[100px] opacity-30 pointer-events-none transition-colors duration-500" id="mockup-glow"></div>
+                    
+                    <!-- Сам телефон -->
+                    <div class="relative w-full max-w-[320px] bg-white rounded-[3rem] border-[10px] border-gray-900 shadow-2xl overflow-hidden" style="aspect-ratio: 9/19;">
+                        
+                        <!-- Челка (Notch) -->
+                        <div class="absolute top-0 inset-x-0 h-6 bg-gray-900 rounded-b-3xl w-40 mx-auto z-50"></div>
+
+                        <!-- Скриншот 1 (Дашборд) -->
+                        <img src="img/screen-dash.png" id="screen-dash" class="demo-screen absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 z-10" alt="Статистика доходов">
+                        
+                        <!-- Скриншот 2 (Календарь) -->
+                        <img src="img/screen-cal.png" id="screen-cal" class="demo-screen absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="График работы">
+                        
+                        <!-- Скриншот 3 (Бот с отзывами) -->
+                        <img src="img/screen-bot.png" id="screen-bot" class="demo-screen absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Работа бота с клиентом">
+                        
+                        <!-- Скриншот 4 (SOS) -->
+                        <img src="img/screen-sos.png" id="screen-sos" class="demo-screen absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 z-0" alt="Форс-мажор">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- СКРИПТ ДЛЯ ПЕРЕКЛЮЧЕНИЯ ЭКРАНОВ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.demo-tab');
+            const screens = document.querySelectorAll('.demo-screen');
+            const glow = document.getElementById('mockup-glow');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // 1. Убираем активный класс со всех кнопок
+                    tabs.forEach(t => {
+                        t.classList.remove('border-brand-500', 'bg-white', 'shadow-lg');
+                        t.classList.add('border-transparent', 'bg-white/50');
+                    });
+
+                    // 2. Добавляем активный класс нажатой кнопке
+                    tab.classList.add('border-brand-500', 'bg-white', 'shadow-lg');
+                    tab.classList.remove('border-transparent', 'bg-white/50');
+
+                    // 3. Прячем все экраны
+                    screens.forEach(s => {
+                        s.classList.remove('opacity-100', 'z-10');
+                        s.classList.add('opacity-0', 'z-0');
+                    });
+
+                    // 4. Показываем нужный экран
+                    const targetId = tab.getAttribute('data-target');
+                    const targetScreen = document.getElementById(targetId);
+                    if (targetScreen) {
+                        targetScreen.classList.remove('opacity-0', 'z-0');
+                        targetScreen.classList.add('opacity-100', 'z-10');
+                    }
+
+                    // Опционально: Меняем цвет подсветки сзади в зависимости от вкладки
+                    if(targetId === 'screen-sos') glow.className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-red-400 rounded-full filter blur-[100px] opacity-30 pointer-events-none transition-colors duration-500";
+                    else if(targetId === 'screen-bot') glow.className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-green-400 rounded-full filter blur-[100px] opacity-30 pointer-events-none transition-colors duration-500";
+                    else glow.className = "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-brand-300 rounded-full filter blur-[100px] opacity-30 pointer-events-none transition-colors duration-500";
+                });
+            });
+        });
+    </script>
+
     <!-- СТАТИСТИКА -->
     <section class="py-10 border-y border-brand-100 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
