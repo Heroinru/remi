@@ -371,7 +371,7 @@
         </div>
     </section>
 
-<!-- СЕКЦИЯ: ФОРМАТ STORIES (ВИДЕО + ТЕКСТ ВНИЗУ) -->
+<!-- СЕКЦИЯ: ФОРМАТ STORIES (ИСПРАВЛЕННЫЙ ЭКРАН) -->
     <section class="py-20 bg-gray-900 relative overflow-hidden" id="video-features">
         
         <!-- Фоновый декор -->
@@ -385,58 +385,60 @@
                 Посмотрите, как это работает
             </h2>
 
-            <!-- МОКАП ТЕЛЕФОНА (Формат iPhone 13/14 -> 9:19.5) -->
-            <div class="relative w-[260px] sm:w-[300px] bg-black rounded-[2.5rem] md:rounded-[3rem] border-8 border-gray-800 shadow-2xl overflow-hidden mb-8" style="aspect-ratio: 9/19.5;">
+            <!-- МОКАП ТЕЛЕФОНА (Двухслойный для идеальных пропорций) -->
+            <!-- Корпус -->
+            <div class="relative w-[260px] sm:w-[300px] bg-gray-800 rounded-[2.5rem] md:rounded-[3rem] p-[6px] md:p-2 shadow-2xl mb-8 mx-auto">
                 
-                <!-- Челка (Notch) -->
-                <div class="absolute top-0 inset-x-0 h-5 bg-gray-800 rounded-b-2xl w-32 mx-auto z-50"></div>
+                <!-- Челка (Notch) - привязана к корпусу -->
+                <div class="absolute top-[6px] md:top-2 inset-x-0 h-5 bg-gray-800 rounded-b-2xl w-32 mx-auto z-50"></div>
 
-                <!-- Полоски прогресса (Стиль Stories) -->
-                <div class="absolute top-6 left-0 right-0 px-4 flex gap-1 z-30" id="story-indicators">
-                    <!-- Полоски генерируются через JS -->
-                </div>
-
-                <!-- КАРУСЕЛЬ С ВИДЕО -->
-                <div id="story-carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full w-full scroll-smooth">
+                <!-- Экран (Точно 9:19.5, без рамок) -->
+                <div class="relative w-full bg-black rounded-[2rem] overflow-hidden" style="aspect-ratio: 9/19.5;">
                     
-                    <!-- Видео 1 -->
-                    <div class="min-w-full h-full snap-center relative">
-                        <video src="video/feature-record.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
+                    <!-- Полоски прогресса (Стиль Stories) -->
+                    <div class="absolute top-5 left-0 right-0 px-4 flex gap-1 z-30" id="story-indicators">
+                        <!-- Полоски генерируются через JS -->
                     </div>
 
-                    <!-- Видео 2 -->
-                    <div class="min-w-full h-full snap-center relative">
-                        <video src="video/feature-retouch.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                    </div>
+                    <!-- КАРУСЕЛЬ С ВИДЕО -->
+                    <div id="story-carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full w-full scroll-smooth">
+                        
+                        <!-- Видео 1 -->
+                        <div class="min-w-full h-full snap-center relative">
+                            <video src="video/feature-record.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
+                        </div>
 
-                    <!-- Видео 3 -->
-                    <div class="min-w-full h-full snap-center relative">
-                        <video src="video/feature-stories.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                    </div>
+                        <!-- Видео 2 -->
+                        <div class="min-w-full h-full snap-center relative">
+                            <video src="video/feature-retouch.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
+                        </div>
 
-                    <!-- Видео 4 -->
-                    <div class="min-w-full h-full snap-center relative">
-                        <video src="video/feature-sos.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                    </div>
+                        <!-- Видео 3 -->
+                        <div class="min-w-full h-full snap-center relative">
+                            <video src="video/feature-stories.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
+                        </div>
 
+                        <!-- Видео 4 -->
+                        <div class="min-w-full h-full snap-center relative">
+                            <video src="video/feature-sos.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
+                        </div>
+
+                    </div>
                 </div>
 
-                <!-- Кнопки ПК навигации (невидимы на мобильных) -->
-                <button id="story-prev" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❮</button>
-                <button id="story-next" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❯</button>
+                <!-- Кнопки ПК навигации -->
+                <button id="story-prev" class="hidden md:flex absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/30 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❮</button>
+                <button id="story-next" class="hidden md:flex absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/10 hover:bg-white/30 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❯</button>
             </div>
 
             <!-- ДИНАМИЧЕСКИЙ БЛОК ТЕКСТА ПОД ВИДЕО -->
             <div class="max-w-[340px] w-full text-center h-[160px] md:h-[130px] flex flex-col items-center">
-                <!-- Бейдж -->
                 <span id="story-badge" class="bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 transition-colors duration-300">
                     Умная запись
                 </span>
-                <!-- Заголовок -->
                 <h3 id="story-title" class="text-white font-bold text-xl mb-2 leading-tight fade-enter">
                     Клиент выбирает окно
                 </h3>
-                <!-- Описание -->
                 <p id="story-desc" class="text-gray-400 text-sm leading-relaxed fade-enter">
                     Готовое сообщение отправляется вам в ЛС. Вы контролируете график, никаких накладок.
                 </p>
@@ -451,16 +453,17 @@
         </div>
     </section>
 
-    <!-- СТИЛИ АНИМАЦИИ ДЛЯ СВАЙПА -->
+    <!-- СТИЛИ АНИМАЦИИ -->
     <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .animate-bounce-x { animation: bounce-x 1.5s infinite; }
         @keyframes bounce-x { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
-        /* fade-enter используется для текста */
         .fade-enter { animation: fadeInText 0.4s ease-in-out; }
         @keyframes fadeInText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 
-    <!-- СКРИПТ ЛОГИКИ СВАЙПА И ТЕКСТА -->
+    <!-- СКРИПТ ЛОГИКИ СВАЙПА -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const carousel = document.getElementById('story-carousel');
@@ -469,7 +472,6 @@
             const prevBtn = document.getElementById('story-prev');
             const nextBtn = document.getElementById('story-next');
             
-            // Элементы текста
             const badgeEl = document.getElementById('story-badge');
             const titleEl = document.getElementById('story-title');
             const descEl = document.getElementById('story-desc');
@@ -477,60 +479,38 @@
             let currentIndex = 0;
             const totalSlides = videos.length;
 
-            // ДАННЫЕ ДЛЯ КАЖДОГО СЛАЙДА
             const storiesData =[
-                { 
-                    badge: "Умная запись", color: "bg-brand-500", 
-                    title: "Клиент выбирает время", 
-                    desc: "Бот сам покажет свободные окна и сформирует сообщение. Вам остается только подтвердить запись." 
-                },
-                { 
-                    badge: "AI Magic", color: "bg-purple-500", 
-                    title: "Идеальная кожа за 5 сек", 
-                    desc: "Просто отправьте фото работы в бота — нейросеть аккуратно уберет покраснения для вашего Instagram." 
-                },
-                { 
-                    badge: "SMM Помощник", color: "bg-pink-500", 
-                    title: "Генератор окошек", 
-                    desc: "Нажмите 2 кнопки, и бот выдаст красивый текст со свободными слотами. Копируйте и выкладывайте в сторис!" 
-                },
-                { 
-                    badge: "SOS-Режим", color: "bg-red-500", 
-                    title: "Экстренная отмена", 
-                    desc: "Заболели? Бот персонально извинится перед всеми клиентами на завтра и предложит перенести запись." 
-                }
+                { badge: "Умная запись", color: "bg-brand-500", title: "Клиент выбирает время", desc: "Бот сам покажет свободные окна и сформирует сообщение. Вам остается только подтвердить запись." },
+                { badge: "AI Magic", color: "bg-purple-500", title: "Идеальная кожа за 5 сек", desc: "Просто отправьте фото работы в бота — нейросеть аккуратно уберет покраснения для вашего Instagram." },
+                { badge: "SMM Помощник", color: "bg-pink-500", title: "Генератор окошек", desc: "Нажмите 2 кнопки, и бот выдаст красивый текст со свободными слотами. Копируйте и выкладывайте в сторис!" },
+                { badge: "SOS-Режим", color: "bg-red-500", title: "Экстренная отмена", desc: "Заболели? Бот персонально извинится перед всеми клиентами на завтра и предложит перенести запись." }
             ];
 
-            // 1. Создаем полоски прогресса (Indicators)
+            // Создаем полоски
             videos.forEach((_, index) => {
                 const bar = document.createElement('div');
-                bar.className = `h-1 rounded-full flex-1 transition-all duration-300 ${index === 0 ? 'bg-white' : 'bg-white/30'}`;
+                bar.className = `h-1 rounded-full flex-1 transition-all duration-300 ${index === 0 ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'bg-white/30'}`;
                 indicatorsContainer.appendChild(bar);
             });
             const bars = indicatorsContainer.children;
 
-            // Функция обновления Текста и Видео
             const updateUI = (index) => {
-                // Обновляем текст с анимацией
                 titleEl.classList.remove('fade-enter');
                 descEl.classList.remove('fade-enter');
-                void titleEl.offsetWidth; // перезапуск анимации CSS
+                void titleEl.offsetWidth; 
                 
                 badgeEl.innerText = storiesData[index].badge;
-                // Меняем цвет бейджа, очищая старые классы bg-
                 badgeEl.className = `text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 transition-colors duration-300 ${storiesData[index].color}`;
-                
                 titleEl.innerText = storiesData[index].title;
                 descEl.innerText = storiesData[index].desc;
                 
                 titleEl.classList.add('fade-enter');
                 descEl.classList.add('fade-enter');
 
-                // Включаем/выключаем видео
                 videos.forEach((vid, i) => {
                     if (i === index) {
                         vid.currentTime = 0;
-                        vid.play().catch(e => console.log('Autoplay prevented', e));
+                        vid.play().catch(e => console.log('Autoplay blocked:', e));
                         bars[i].className = 'h-1 rounded-full flex-1 transition-all duration-300 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]';
                     } else {
                         vid.pause();
@@ -539,11 +519,9 @@
                 });
             };
 
-            // Отслеживание свайпа
             carousel.addEventListener('scroll', () => {
                 const scrollPosition = carousel.scrollLeft;
                 const slideWidth = carousel.clientWidth;
-                // Вычисляем центральный слайд
                 const newIndex = Math.round(scrollPosition / slideWidth);
                 
                 if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
@@ -552,55 +530,16 @@
                 }
             });
 
-            // Навигация по кнопкам (ПК)
             nextBtn.addEventListener('click', () => {
-                if (currentIndex < totalSlides - 1) {
-                    carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
-                }
+                if (currentIndex < totalSlides - 1) carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
             });
             prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
-                }
+                if (currentIndex > 0) carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
             });
 
-            // Инициализация при старте
             setTimeout(() => { updateUI(0); }, 300);
         });
     </script>
-
-<!-- 5. FAQ -->
-    <section class="py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <h2 class="text-3xl font-extrabold text-brand-900 text-center mb-10">Частые вопросы</h2>
-            
-            <div class="space-y-4">
-                <details class="group bg-brand-50 rounded-2xl overflow-hidden cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-6 text-brand-900 list-none">
-                        <span>Нужно ли клиенту скачивать приложение?</span>
-                        <span class="transition group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="text-gray-600 px-6 pb-6 pt-0">Нет! Всё работает внутри Telegram. Это повышает конверсию в запись — людям лень качать лишние приложения.</div>
-                </details>
-
-                <details class="group bg-brand-50 rounded-2xl overflow-hidden cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-6 text-brand-900 list-none">
-                        <span>А если я запишу клиента вручную?</span>
-                        <span class="transition group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="text-gray-600 px-6 pb-6 pt-0">Remi увидит это в вашем Google Календаре и автоматически уберет этот слот из онлайн-записи. Двойной записи не случится.</div>
-                </details>
-
-                <details class="group bg-brand-50 rounded-2xl overflow-hidden cursor-pointer">
-                    <summary class="flex justify-between items-center font-bold p-6 text-brand-900 list-none">
-                        <span>Это безопасно?</span>
-                        <span class="transition group-open:rotate-180">▼</span>
-                    </summary>
-                    <div class="text-gray-600 px-6 pb-6 pt-0">Мы проходим верификацию Google. Мы не храним данные ваших карт и не передаем базу третьим лицам.</div>
-                </details>
-            </div>
-        </div>
-    </section>
 
 
     <!-- 5. КОМАНДА -->
