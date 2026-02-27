@@ -371,93 +371,96 @@
         </div>
     </section>
 
-<!-- СЕКЦИЯ: ФОРМАТ STORIES (КОРОТКИЕ ВИДЕО) -->
+<!-- СЕКЦИЯ: ФОРМАТ STORIES (ВИДЕО + ТЕКСТ ВНИЗУ) -->
     <section class="py-20 bg-gray-900 relative overflow-hidden" id="video-features">
         
         <!-- Фоновый декор -->
         <div class="absolute inset-0 opacity-20 bg-dot-pattern bg-[length:24px_24px]"></div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-brand-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[80%] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center flex flex-col items-center">
             
             <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Вживую</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-white mt-2 mb-8">
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-white mt-2 mb-10">
                 Посмотрите, как это работает
             </h2>
-            <p class="text-gray-400 mb-10 text-sm max-w-xl mx-auto">
-                Смахните влево, чтобы посмотреть все суперспособности Remi. Коротко и по делу.
-            </p>
 
-            <!-- КОНТЕЙНЕР "ТЕЛЕФОН" -->
-            <div class="relative mx-auto w-full max-w-[320px] bg-black rounded-[2.5rem] border-4 border-gray-800 shadow-2xl overflow-hidden" style="aspect-ratio: 9/16;">
+            <!-- МОКАП ТЕЛЕФОНА (Формат iPhone 13/14 -> 9:19.5) -->
+            <div class="relative w-[260px] sm:w-[300px] bg-black rounded-[2.5rem] md:rounded-[3rem] border-8 border-gray-800 shadow-2xl overflow-hidden mb-8" style="aspect-ratio: 9/19.5;">
                 
+                <!-- Челка (Notch) -->
+                <div class="absolute top-0 inset-x-0 h-5 bg-gray-800 rounded-b-2xl w-32 mx-auto z-50"></div>
+
                 <!-- Полоски прогресса (Стиль Stories) -->
-                <div class="absolute top-4 left-0 right-0 px-4 flex gap-1 z-30" id="story-indicators">
-                    <!-- Полоски сгенерируются через JS -->
+                <div class="absolute top-6 left-0 right-0 px-4 flex gap-1 z-30" id="story-indicators">
+                    <!-- Полоски генерируются через JS -->
                 </div>
 
                 <!-- КАРУСЕЛЬ С ВИДЕО -->
-                <!-- snap-x и snap-mandatory дают эффект четкого перелистывания -->
                 <div id="story-carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full w-full scroll-smooth">
                     
-                    <!-- СТОРИС 1: Запись -->
+                    <!-- Видео 1 -->
                     <div class="min-w-full h-full snap-center relative">
-                        <!-- playsinline ОЧЕНЬ важно для iOS, muted для автоплея -->
                         <video src="video/feature-record.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                        <!-- Градиент для читаемости текста -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                        <!-- Текст -->
-                        <div class="absolute bottom-8 left-6 right-6 text-left">
-                            <span class="bg-brand-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">Умная запись</span>
-                            <h3 class="text-white font-bold text-xl mt-2 mb-1 leading-tight">Клиент выбирает окно</h3>
-                            <p class="text-gray-300 text-sm leading-snug">Готовое сообщение отправляется вам в ЛС. Никаких накладок.</p>
-                        </div>
                     </div>
 
-                    <!-- СТОРИС 2: Ретушь -->
+                    <!-- Видео 2 -->
                     <div class="min-w-full h-full snap-center relative">
                         <video src="video/feature-retouch.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                        <div class="absolute bottom-8 left-6 right-6 text-left">
-                            <span class="bg-purple-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">AI Magic</span>
-                            <h3 class="text-white font-bold text-xl mt-2 mb-1 leading-tight">Идеальная кожа за 5 сек</h3>
-                            <p class="text-gray-300 text-sm leading-snug">Загрузите фото работы — бот сам уберет покраснения для красивого портфолио.</p>
-                        </div>
                     </div>
 
-                    <!-- СТОРИС 3: Сторис -->
+                    <!-- Видео 3 -->
                     <div class="min-w-full h-full snap-center relative">
                         <video src="video/feature-stories.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                        <div class="absolute bottom-8 left-6 right-6 text-left">
-                            <span class="bg-pink-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">SMM Помощник</span>
-                            <h3 class="text-white font-bold text-xl mt-2 mb-1 leading-tight">Генератор "Окошек"</h3>
-                            <p class="text-gray-300 text-sm leading-snug">Выберите дни — бот создаст красивый текст для Instagram.</p>
-                        </div>
                     </div>
 
-                    <!-- СТОРИС 4: SOS -->
+                    <!-- Видео 4 -->
                     <div class="min-w-full h-full snap-center relative">
                         <video src="video/feature-sos.mp4" class="story-video w-full h-full object-cover" muted loop playsinline></video>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
-                        <div class="absolute bottom-8 left-6 right-6 text-left">
-                            <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wide">SOS-Режим</span>
-                            <h3 class="text-white font-bold text-xl mt-2 mb-1 leading-tight">Экстренная отмена</h3>
-                            <p class="text-gray-300 text-sm leading-snug">Заболели? Отмените записи на завтра нажатием одной кнопки.</p>
-                        </div>
                     </div>
 
                 </div>
 
-                <!-- Кнопки навигации (Для ПК) -->
-                <button id="story-prev" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❮</button>
-                <button id="story-next" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❯</button>
-
+                <!-- Кнопки ПК навигации (невидимы на мобильных) -->
+                <button id="story-prev" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❮</button>
+                <button id="story-next" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full text-white items-center justify-center transition z-40">❯</button>
             </div>
+
+            <!-- ДИНАМИЧЕСКИЙ БЛОК ТЕКСТА ПОД ВИДЕО -->
+            <div class="max-w-[340px] w-full text-center h-[160px] md:h-[130px] flex flex-col items-center">
+                <!-- Бейдж -->
+                <span id="story-badge" class="bg-brand-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 transition-colors duration-300">
+                    Умная запись
+                </span>
+                <!-- Заголовок -->
+                <h3 id="story-title" class="text-white font-bold text-xl mb-2 leading-tight fade-enter">
+                    Клиент выбирает окно
+                </h3>
+                <!-- Описание -->
+                <p id="story-desc" class="text-gray-400 text-sm leading-relaxed fade-enter">
+                    Готовое сообщение отправляется вам в ЛС. Вы контролируете график, никаких накладок.
+                </p>
+            </div>
+
+            <!-- Подсказка для мобильных -->
+            <div class="flex items-center gap-2 mt-2 opacity-50">
+                <svg class="w-5 h-5 text-white animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path></svg>
+                <span class="text-xs text-white uppercase tracking-widest font-bold">Смахните влево</span>
+            </div>
+
         </div>
     </section>
 
-    <!-- СКРИПТ УПРАВЛЕНИЯ ВИДЕО-СТОРИС -->
+    <!-- СТИЛИ АНИМАЦИИ ДЛЯ СВАЙПА -->
+    <style>
+        .animate-bounce-x { animation: bounce-x 1.5s infinite; }
+        @keyframes bounce-x { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
+        /* fade-enter используется для текста */
+        .fade-enter { animation: fadeInText 0.4s ease-in-out; }
+        @keyframes fadeInText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+
+    <!-- СКРИПТ ЛОГИКИ СВАЙПА И ТЕКСТА -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const carousel = document.getElementById('story-carousel');
@@ -466,10 +469,39 @@
             const prevBtn = document.getElementById('story-prev');
             const nextBtn = document.getElementById('story-next');
             
+            // Элементы текста
+            const badgeEl = document.getElementById('story-badge');
+            const titleEl = document.getElementById('story-title');
+            const descEl = document.getElementById('story-desc');
+            
             let currentIndex = 0;
             const totalSlides = videos.length;
 
-            // 1. Создаем полоски прогресса
+            // ДАННЫЕ ДЛЯ КАЖДОГО СЛАЙДА
+            const storiesData =[
+                { 
+                    badge: "Умная запись", color: "bg-brand-500", 
+                    title: "Клиент выбирает время", 
+                    desc: "Бот сам покажет свободные окна и сформирует сообщение. Вам остается только подтвердить запись." 
+                },
+                { 
+                    badge: "AI Magic", color: "bg-purple-500", 
+                    title: "Идеальная кожа за 5 сек", 
+                    desc: "Просто отправьте фото работы в бота — нейросеть аккуратно уберет покраснения для вашего Instagram." 
+                },
+                { 
+                    badge: "SMM Помощник", color: "bg-pink-500", 
+                    title: "Генератор окошек", 
+                    desc: "Нажмите 2 кнопки, и бот выдаст красивый текст со свободными слотами. Копируйте и выкладывайте в сторис!" 
+                },
+                { 
+                    badge: "SOS-Режим", color: "bg-red-500", 
+                    title: "Экстренная отмена", 
+                    desc: "Заболели? Бот персонально извинится перед всеми клиентами на завтра и предложит перенести запись." 
+                }
+            ];
+
+            // 1. Создаем полоски прогресса (Indicators)
             videos.forEach((_, index) => {
                 const bar = document.createElement('div');
                 bar.className = `h-1 rounded-full flex-1 transition-all duration-300 ${index === 0 ? 'bg-white' : 'bg-white/30'}`;
@@ -477,13 +509,29 @@
             });
             const bars = indicatorsContainer.children;
 
-            // 2. Умное воспроизведение видео (Play/Pause)
-            const updateVideoPlayback = (index) => {
+            // Функция обновления Текста и Видео
+            const updateUI = (index) => {
+                // Обновляем текст с анимацией
+                titleEl.classList.remove('fade-enter');
+                descEl.classList.remove('fade-enter');
+                void titleEl.offsetWidth; // перезапуск анимации CSS
+                
+                badgeEl.innerText = storiesData[index].badge;
+                // Меняем цвет бейджа, очищая старые классы bg-
+                badgeEl.className = `text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-3 transition-colors duration-300 ${storiesData[index].color}`;
+                
+                titleEl.innerText = storiesData[index].title;
+                descEl.innerText = storiesData[index].desc;
+                
+                titleEl.classList.add('fade-enter');
+                descEl.classList.add('fade-enter');
+
+                // Включаем/выключаем видео
                 videos.forEach((vid, i) => {
                     if (i === index) {
-                        vid.currentTime = 0; // Начинаем сначала
-                        vid.play().catch(e => console.log('Autoplay prevented:', e)); // Обработка блокировок браузера
-                        bars[i].className = 'h-1 rounded-full flex-1 transition-all duration-300 bg-white';
+                        vid.currentTime = 0;
+                        vid.play().catch(e => console.log('Autoplay prevented', e));
+                        bars[i].className = 'h-1 rounded-full flex-1 transition-all duration-300 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]';
                     } else {
                         vid.pause();
                         bars[i].className = 'h-1 rounded-full flex-1 transition-all duration-300 bg-white/30';
@@ -491,252 +539,11 @@
                 });
             };
 
-            // 3. Отслеживание свайпа (скролла)
+            // Отслеживание свайпа
             carousel.addEventListener('scroll', () => {
                 const scrollPosition = carousel.scrollLeft;
                 const slideWidth = carousel.clientWidth;
-                // Определяем, какой слайд сейчас по центру
-                const newIndex = Math.round(scrollPosition / slideWidth);
-                
-                if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
-                    currentIndex = newIndex;
-                    updateVideoPlayback(currentIndex);
-                }
-            });
-
-            // 4. Кнопки вперед/назад
-            nextBtn.addEventListener('click', () => {
-                if (currentIndex < totalSlides - 1) {
-                    carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
-                }
-            });
-            prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
-                }
-            });
-
-            // Запускаем первое видео с задержкой (чтобы браузер успел отрендерить)
-            setTimeout(() => { updateVideoPlayback(0); }, 500);
-        });
-    </script>
-    
-
-    <!-- 4. ПРОЦЕСС ЗАПИСИ (Вместо #sync) -->
-    <section class="py-24 bg-brand-50 overflow-hidden relative" id="sync">
-        <div class="absolute inset-0 bg-dot-pattern opacity-30"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
-                <!-- Текст -->
-                <div class="order-2 lg:order-1">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-brand-900 mb-6">
-                        Запись без лишних слов.<br>Вы сохраняете контроль.
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Клиент не может "сломать" ваш график. Он видит только свободные слоты, а финальное подтверждение записи всегда за вами в Личных Сообщениях.
-                    </p>
-
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-white text-brand-600 flex items-center justify-center font-bold text-xl shadow-sm">1</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-brand-900">Визуальный выбор</h3>
-                                <p class="text-gray-500 text-sm">Клиент нажимает "Записаться" и видит красивый календарь. Зеленые дни — свободны.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-white text-brand-600 flex items-center justify-center font-bold text-xl shadow-sm">2</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-brand-900">Готовое сообщение</h3>
-                                <p class="text-gray-500 text-sm">Бот формирует текст: <i>"Хочу на Ресницы, 25.10 в 14:00"</i>. Клиенту остается только нажать "Отправить".</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center font-bold text-xl shadow-sm">3</div>
-                            <div>
-                                <h3 class="font-bold text-lg text-brand-900">Вы подтверждаете</h3>
-                                <p class="text-gray-500 text-sm">Вы получаете сообщение в ЛС. Вносите запись в календарь (в Google или Dikidi). Система подхватывает её автоматически.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Визуализация Чата -->
-                <div class="order-1 lg:order-2 flex justify-center">
-                    <div class="relative w-full max-w-[320px] bg-white border-8 border-white rounded-[2.5rem] shadow-2xl overflow-hidden h-[500px] flex flex-col">
-                        <div class="bg-gray-100 p-4 flex items-center gap-3 border-b">
-                            <div class="w-10 h-10 bg-brand-500 rounded-full text-white flex items-center justify-center font-bold">M</div>
-                            <div>
-                                <div class="font-bold text-sm leading-tight">Ваш профиль</div>
-                                <div class="text-[10px] text-blue-500">в сети</div>
-                            </div>
-                        </div>
-                        <div class="flex-1 bg-[#E4EBEF] p-4 flex flex-col justify-end gap-3 bg-[url('https://w.wallhaven.cc/full/wq/wallhaven-wqery6.png')] bg-cover">
-                            <!-- Сообщение клиента -->
-                            <div class="self-end bg-brand-500 text-white p-3 rounded-2xl rounded-tr-sm max-w-[90%] text-sm shadow-sm">
-                                Здравствуйте! Хочу записаться на <b>Маникюр + Покрытие</b>.<br><br>
-                                📅 24 октября<br>
-                                ⏰ 14:00
-                            </div>
-                            <!-- Ответ мастера -->
-                            <div class="self-start bg-white text-gray-800 p-3 rounded-2xl rounded-tl-sm max-w-[90%] text-sm shadow-sm">
-                                Добрый день! Отлично, записала вас ✅ Приходите за 5 минут до начала.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- CSS ДЛЯ СКРЫТИЯ СКРОЛЛБАРА И АНИМАЦИЙ -->
-    <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .fade-enter { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
-
-    <!-- СЕКЦИЯ: ИНСТРУКЦИЯ ПО ПОДКЛЮЧЕНИЮ -->
-    <section class="py-20 bg-brand-50 border-t border-brand-100 overflow-hidden" id="onboarding">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-            
-            <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Быстрый старт</span>
-            <h2 class="text-3xl lg:text-4xl font-extrabold text-brand-900 mt-2 mb-10">
-                Настройка займет 2 минуты
-            </h2>
-
-            <!-- Контейнер: Телефон + Текст -->
-            <div class="flex flex-col items-center max-w-sm mx-auto">
-                
-                <!-- МОКАП ТЕЛЕФОНА -->
-                <div class="relative w-[280px] sm:w-[320px] bg-white rounded-[2.5rem] border-8 border-gray-900 shadow-2xl overflow-hidden mb-8" style="aspect-ratio: 9/19.5;">
-                    <!-- Динамик (Notch) -->
-                    <div class="absolute top-0 inset-x-0 h-5 bg-gray-900 rounded-b-2xl w-32 mx-auto z-50"></div>
-                    
-                    <!-- КАРУСЕЛЬ КАРТИНОК -->
-                    <div id="steps-carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full w-full scroll-smooth">
-                        <!-- Слайд 1 -->
-                        <div class="min-w-full h-full snap-center relative">
-                            <img src="img/step1.png" alt="Шаг 1" class="w-full h-full object-cover">
-                        </div>
-                        <!-- Слайд 2 -->
-                        <div class="min-w-full h-full snap-center relative">
-                            <img src="img/step2.png" alt="Шаг 2" class="w-full h-full object-cover">
-                        </div>
-                        <!-- Слайд 3 -->
-                        <div class="min-w-full h-full snap-center relative">
-                            <img src="img/step3.png" alt="Шаг 3" class="w-full h-full object-cover">
-                        </div>
-                        <!-- Слайд 4 -->
-                        <div class="min-w-full h-full snap-center relative">
-                            <img src="img/step4.png" alt="Шаг 4" class="w-full h-full object-cover">
-                        </div>
-                        <!-- Слайд 5 -->
-                        <div class="min-w-full h-full snap-center relative">
-                            <img src="img/step5.png" alt="Шаг 5" class="w-full h-full object-cover">
-                        </div>
-                        <!-- Слайд 6 -->
-                        <div class="min-w-full h-full snap-center relative">
-                            <img src="img/step6.png" alt="Шаг 6" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <!-- Кнопки навигации (поверх экрана, полупрозрачные) -->
-                    <button id="prev-btn" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/30 backdrop-blur-sm rounded-full text-white flex items-center justify-center opacity-0 transition-opacity z-40">❮</button>
-                    <button id="next-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/30 backdrop-blur-sm rounded-full text-white flex items-center justify-center transition-opacity z-40">❯</button>
-                </div>
-
-                <!-- ДИНАМИЧЕСКИЙ ТЕКСТ (Меняется при свайпе) -->
-                <div class="h-[140px] flex flex-col items-center justify-start w-full">
-                    <!-- Точки (Пагинация) -->
-                    <div class="flex gap-2 mb-4" id="dots-container">
-                        <div class="w-2 h-2 rounded-full bg-brand-500 transition-all duration-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 dot"></div>
-                        <div class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300 dot"></div>
-                    </div>
-
-                    <!-- Заголовок шага -->
-                    <h3 id="step-title" class="text-xl font-extrabold text-brand-900 mb-2 fade-enter">1. Запуск</h2>
-                    <!-- Описание шага -->
-                    <p id="step-desc" class="text-gray-600 text-sm leading-relaxed fade-enter">
-                        Нажмите кнопку «Старт» в Telegram, чтобы запустить вашего нового ассистента.
-                    </p>
-                </div>
-                
-                <a href="https://t.me/airmnd_bot" class="mt-4 inline-block bg-brand-500 text-white px-8 py-3 rounded-full font-bold hover:bg-brand-600 shadow-lg transform hover:scale-105 transition">
-                    Пройти регистрацию
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- СКРИПТ ЛОГИКИ КАРУСЕЛИ -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const carousel = document.getElementById('steps-carousel');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const titleEl = document.getElementById('step-title');
-            const descEl = document.getElementById('step-desc');
-            const dots = document.querySelectorAll('.dot');
-            
-            let currentIndex = 0;
-            const totalSlides = 6;
-
-            // Массив с текстами (Твой маркетинг!)
-            const stepData =[
-                { title: "1. Запуск", desc: "Нажмите кнопку «Старт» в Telegram, чтобы запустить вашего нового ассистента." },
-                { title: "2. Синхронизация", desc: "Бот расскажет, что умеет. Нажмите «Подключить Google Calendar»." },
-                { title: "3. Авторизация", desc: "Выберите аккаунт. <b class='text-red-500'>Важно:</b> пока мы проходим проверку Google, вы увидите предупреждение. Нажмите «Дополнительные настройки» → «Перейти»." },
-                { title: "4. Разрешение", desc: "Нажмите «Продолжить», чтобы Remi мог видеть ваше свободное время и вносить записи." },
-                { title: "5. Готово!", desc: "Синхронизация прошла успешно! Возвращайтесь обратно в Telegram." },
-                { title: "6. Финальный штрих", desc: "Напишите, как подписываться в сообщениях (например, 'Мастер Анна'). Всё, бот готов к работе!" }
-            ];
-
-            // Функция обновления текста и точек
-            const updateUI = (index) => {
-                // Анимация текста (рестарт анимации)
-                titleEl.classList.remove('fade-enter');
-                descEl.classList.remove('fade-enter');
-                void titleEl.offsetWidth; // trigger reflow
-                
-                // Меняем текст
-                titleEl.innerHTML = stepData[index].title;
-                descEl.innerHTML = stepData[index].desc;
-                
-                titleEl.classList.add('fade-enter');
-                descEl.classList.add('fade-enter');
-
-                // Обновляем точки
-                dots.forEach((dot, i) => {
-                    if(i === index) {
-                        dot.classList.replace('bg-gray-300', 'bg-brand-500');
-                        dot.classList.add('w-6'); // Делаем активную точку длинной
-                    } else {
-                        dot.classList.replace('bg-brand-500', 'bg-gray-300');
-                        dot.classList.remove('w-6');
-                    }
-                });
-
-                // Показываем/Скрываем кнопки
-                prevBtn.style.opacity = index === 0 ? '0' : '1';
-                nextBtn.style.opacity = index === totalSlides - 1 ? '0' : '1';
-                prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
-                nextBtn.style.pointerEvents = index === totalSlides - 1 ? 'none' : 'auto';
-            };
-
-            // Слушаем свайп (scroll)
-            carousel.addEventListener('scroll', () => {
-                // Вычисляем текущий индекс на основе прокрутки
-                const scrollPosition = carousel.scrollLeft;
-                const slideWidth = carousel.clientWidth;
+                // Вычисляем центральный слайд
                 const newIndex = Math.round(scrollPosition / slideWidth);
                 
                 if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
@@ -745,21 +552,20 @@
                 }
             });
 
-            // Клики по кнопкам
+            // Навигация по кнопкам (ПК)
             nextBtn.addEventListener('click', () => {
                 if (currentIndex < totalSlides - 1) {
                     carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
                 }
             });
-
             prevBtn.addEventListener('click', () => {
                 if (currentIndex > 0) {
                     carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
                 }
             });
 
-            // Инициализация
-            updateUI(0);
+            // Инициализация при старте
+            setTimeout(() => { updateUI(0); }, 300);
         });
     </script>
 
